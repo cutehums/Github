@@ -2,16 +2,22 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-int main() {
-    int num,tmp;
-    vector<int> a;
-    cin >> num;
-    for(int i = 0; i < num; i++)
-    {
-        cin >> tmp;
-        a.push_back(tmp);
+
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    int N; cin >> N;
+    vector<int>v;
+    while(N--){
+        int M; cin >> M;
+        v.push_back(M);
+        
     }
-    sort(a.begin(),a.end());
-    for(int i = 0; i < num; i++)
-        cout << a[i] << '\n';
+    sort(v.begin(),v.end());
+    for (int i = 0; i < v.size(); i++){
+        cout << v[i] << '\n';
+    }
+    
+    return 0;
 }
