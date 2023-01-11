@@ -8,11 +8,10 @@ using namespace std;
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    int finish = 0;
     int N; cin >> N;
     while (N--){
         string str; cin >> str;
-        finish = 0;
+        int finish = 0;
         for (int i = 0; i < str.size(); i++){
             if (str[i] == 41){ // str[i] = ')'이라면
                 int idx = i - 1;
