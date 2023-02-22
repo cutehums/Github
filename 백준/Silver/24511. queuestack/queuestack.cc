@@ -29,9 +29,7 @@ int main()
                 q.pop();
             }
         }
-        else {
-            continue;
-        }
+ 
         
     }
     int M; cin >> M;
