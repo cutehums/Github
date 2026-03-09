@@ -1,22 +1,14 @@
 #include <iostream>
-#include <vector>
+#include <queue>
 #include <algorithm>
 
 using namespace std;
 
 int N;
-vector <int> v;
-int t = 0;
+priority_queue <int> pq;
+int t;
+int largest, second_largest;
 
-
-bool f(){
-    for (int i =0; i < v.size(); i++){
-        if (v[i] > 0){
-            return false; //눈을 덜치움
-        }
-    }
-    return true;//눈을 다치움
-}
 
 int main(){
     ios::sync_with_stdio(false);
@@ -25,33 +17,28 @@ int main(){
     int a;
     for (int i = 0; i < N; i++){
         cin >> a;
-        v.push_back(a);
+        pq.push(a);
     }
-    while(true){
-        if (f()){
-            if (t > 1440){
-                cout << -1;
-            }
-            else {
-                cout << t;
-            }
-            break;
+    while(!pq.empty()){
+        int pq_size = pq.size();
+        largest = pq.top();
+        pq.pop();
+        if (pq_size > 1){
+            second_largest = pq.top();
+            pq.pop();
+            second_largest--;
         }
-        int max = *max_element(v.begin(), v.end());
-        int idx = find(v.begin(), v.end(), max) - v.begin();
-        v.erase(v.begin() + idx);
-        if (!v.empty()){
-            int second_max = *max_element(v.begin(), v.end());
-            int second_idx = find(v.begin(), v.end(), second_max) - v.begin();
-            v[second_idx]--;
-        }
-
-
+        largest--;
         t++;
-        max--;
-        v.push_back(max);
-        
+        if (largest > 0){
+            pq.push(largest);
+        }
+        if (second_largest > 0){
+            pq.push(second_largest);
+        }
     }
+    t > 1440 ? cout << -1 : cout << t;
+
 
 
 
