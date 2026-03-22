@@ -39,17 +39,15 @@ void subtraction(){
             }
         }
     // 앞에 0이면 제거
-    // if (N[0] == '0'){
-    //     for (int i = 0; i < N.size() - 1; i++){
-    //         if (N[i] != '0'){
-    //             N.erase(N.begin(), N.begin() + i);
-    //             break;
-    //         }
-    //     }
-    // }
-    while (N.size() > 1 && N[0] == '0'){
-        N.erase(0, 1);
+    if (N[0] == '0'){
+        for (int i = 0; i < N.size(); i++){
+            if (N[i] != '0'){
+                N.erase(N.begin(), N.begin() + i);
+                break;
+            }
+        }
     }
+
 
     
 
